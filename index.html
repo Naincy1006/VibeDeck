@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="brand-header"><h1 id="id1">VibeDeck</h1>
+    <h3 id="id2">Suggestions shaped by your vibe.</h3></header>
+    
+    <nav>
+        <ul>
+            <li><a href="#" class="n1">Home</a></li>
+            <li><a href="#" class="n2">Explore</a></li>
+            <li><a href="#" class="n4">Recommendations</a></li>
+            <li><a href="#" class="n5">About</a></li>
+            
+           
+        </ul>
+        
+    </nav>
+    <section id="home-view">
+        <div class="carousel-container">
+        <button class="carousel-btn prev-btn" id="prevBtn">&#10094;</button>
+        <button class="carousel-btn next-btn" id="nextBtn">&#10095;</button>
+
+        <div class="carousel-track" id="carouselTrack">
+            <div class="card" data-vibe="Thought-Provoking"><img src="assets/inception.jpg"></div>
+            <div class="card" data-vibe="Dark-Intense"><img src="assets/dead.jpg"></div>
+            <div class="card" data-vibe="Tragic-Romance Friendship"><img src="assets/dos.jpg"></div>
+            <div class="card" data-vibe="Adventure-Fantasy Feel-good"><img src="assets/potter.jpg"></div>
+            <div class="card"  data-vibe="Dark-Intense"><img src="assets/boys.jpg"></div>
+            <div class="card" data-vibe="Feel-good Friendship"><img src="assets/friends.jpg"></div>
+            <div class="card" data-vibe="thrill"><img src="assets/runner.jpg"></div>
+            <div class="card" data-vibe="Adventure-Fantasy Feel-good"><img src="assets/toystory.jpg"></div>
+            <div class="card" data-vibe="Friendship"><img src="assets/love_rosie.jpg"></div>
+            <div class="card" data-vibe="motivational Thought-Provoking"><img src="assets/money.jpg"></div>
+            <div class="card" data-vibe="Hope-Resilience"><img src="assets/shawshank.jpg"></div>
+            <div class="card" data-vibe="Nostalgia Thought-Provoking"><img src="assets/woods.jpg"></div>
+            <div class="card"
+            data-vibe="Dark-Intense"><img src="assets/euphoria.jpg"></div>
+            <div class="card" data-vibe="Motivational "><img src="assets/atomic.jpg"></div>
+            <div class="card" data-vibe="Hope-Resilience"><img src="assets/pursuit.jpg"></div>
+        </div>
+    </section>
+    <section id="about-view" class="hidden">
+        <div class="about-container">
+            <div class="about-hero">
+                 <h2>About VibeDeck</h2>
+                <p class="about-tagline">
+                    Suggestions shaped  by your vibe.
+                </p>
+            </div>
+            <div class="about-body">
+                <div class="about-section-block"><h3>The Concept</h3><p>Traditional streaming platforms sort content by rigid, clinical genres like Action, Comedy, or Drama.
+                But human emotions don't always fit into neat little boxes. Sometimes you aren't looking for generic "Drama"-you're looking for something deeply <strong>Thought-Provoking</strong>, a dose of <strong>Motivational</strong> energy, or a heavy <strong>Dark-Intense</strong> thriller.
+                <strong>VibeDeck</strong> bridges that gap by mapping curation to how you actually feel.
+            </p></div>
+            <div class="about-section-block"><h3>How It Works</h3>
+                <p>By tagging every single title with multi-layered emotional contexts, VibeDeck allows you to filter through entire collections dynamically. Whether you select a single mood or look for intersecting sub-genres, the deck re-shuffles instantly to serve your current state of mind.</p>
+            </div>
+            <div class="about-section-block developer-profile"><h3>Behind the Deck</h3>
+            <p>VibeDeck is an independent frontend project built to experiment with dynamic DOM manipulation, asynchronous UI filtering, and custom layout architectures.</p>
+            <p class="tech-stack"><strong>Tech Stack:</strong>
+            HTML5 &bull; CSS3 &bull; JavaScript (ES6)</p>
+            </div>
+        </div>
+            </div>
+           
+        </div>
+
+    </section>
+    <section id="explore-view" class="hidden">
+        <div class="explore-header">
+            <input class="searchbar" type="text" placeholder="Search movies, books or shows...">
+    
+            <h2>Discover Your Next Vibe</h2>
+            <p>Select a mood to filter through our entire deck collection.</p>
+            <div class="filter-container">
+                <button class="filter-btn" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="Thrill">Thrill</button>
+                <button class="filter-btn" data-filter="Feel-good">Feel-good</button>
+                <button class="filter-btn" data-filter="Motivational">Motivational</button>
+                <button class="filter-btn" data-filter="Friendship">Friendship</button>
+                
+            </div>
+
+        </div>
+        <div class="explore-grid">
+             <div class="card" data-vibe="Thought-Provoking"><img src="assets/inception.jpg"></div>
+            <div class="card" data-vibe="Dark-Intense"><img src="assets/dead.jpg"></div>
+            <div class="card" data-vibe="Tragic-Romance Friendship"><img src="assets/dos.jpg"></div>
+            <div class="card" data-vibe="Adventure-Fantasy Feel-good"><img src="assets/potter.jpg"></div>
+            <div class="card"  data-vibe="Dark-Intense"><img src="assets/euphoria.jpg"></div>
+            <div class="card" data-vibe="Feel-good Friendship"><img src="assets/friends.jpg"></div>
+            <div class="card" data-vibe="thrill"><img src="assets/runner.jpg"></div>
+            <div class="card" data-vibe="Adventure-Fantasy Feel-good"><img src="assets/toystory.jpg"></div>
+            <div class="card" data-vibe="Friendship"><img src="assets/love_rosie.jpg"></div>
+            <div class="card" data-vibe="motivational Thought-Provoking"><img src="assets/money.jpg"></div>
+            <div class="card" data-vibe="Hope-Resilience"><img src="assets/shawshank.jpg"></div>
+            <div class="card" data-vibe="Nostalgia Thought-Provoking"><img src="assets/woods.jpg"></div>
+            <div class="card"
+            data-vibe="Dark-Intense"><img src="assets/boys.jpg"></div>
+            <div class="card" data-vibe="Motivational "><img src="assets/atomic.jpg"></div>
+            <div class="card" data-vibe="Hope-Resilience"><img src="assets/pursuit.jpg"></div>
+        </div>
+    </section>
+    
+        
+        
+       
+        
+        <script src="script.js"></script>
+       
+    </div>
+    
+    
+
+    
+    
+</body>
+</html>

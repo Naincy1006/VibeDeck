@@ -1,0 +1,326 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#f7f7f7;
+    color: #111111;
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+    
+}
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.brand-header{
+    background-color: #212842;
+}
+#id1{
+    color: #f0e7d5;
+    font-size: 4rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 900;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    padding-top: 9px;
+    font-weight: bold;
+
+
+}
+#id2{
+    display: inline-flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    flex-direction: column;
+    color: white;
+    margin-top: 12px;
+    font-size: 1rem;
+    letter-spacing: 5px;
+}
+button{
+    background-color: #cdd6e4;
+    color: rgb(10, 1, 1);
+    border: 1px solid #ddccccbc;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+@media(max-width:768px){
+    nav{
+        flex-direction: column;
+    }
+    ul{
+        flex-direction: column;
+        margin-top: 15px
+    }
+}
+    
+nav ul{
+    display: flex;
+    list-style-type: none ;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+    align-items: center;
+    padding-top: 30px;
+   
+}
+
+nav ul li{
+    display:inline-block;
+    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: 0.3s;
+}
+a:hover{
+    border-radius: 8px;
+    background-color: #080d37;
+    padding: 12px;
+    color: rgb(253, 249, 249);
+}
+input{
+    display: flex;
+    text-align: left;
+    padding: 14px;
+    background-color: rgb(8, 8, 8);
+    color: rgb(255, 255, 255);
+    
+}
+input::placeholder{
+    color: #f9f4f4e9;
+    font-weight: 500;
+}
+.searchbar{
+    width: clamp(180px, 20vw, 320px);
+    border-radius: 11px;
+    
+}
+.carousel-container{
+    position: relative;
+    width: 95%;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+}
+.carousel-track{
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    width: 100%;
+}
+.carousel-track::-webkit-scrollbar{
+    display: none;
+
+}
+.carousel-track{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+}
+.card{
+    flex: 0 0 auto;
+    width: 150px;
+    height: 220px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+    gap: 12px;
+}
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    gap: 12px;
+    border-color: #111111;
+    border-radius: 3px;
+    border-width: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.892) ;
+}
+.card:hover{
+    transform: translateY(-12px);
+    
+}
+.carousel-btn{
+    top: 50%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+.carousel-btn:hover{
+    background-color: rgba(0, 0,0, 0.9);
+
+}
+.prev-btn{
+    left: -25px;
+}
+.next-btn{
+    right: -25px;
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    list-style: none;
+    background: #ffffff;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    min-width: 150px;
+    padding: 10px 0;
+    color: #111111;
+    z-index: 9999;
+    font-weight: 700;
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+    background-color: #f4f4f4;
+    
+}
+.dropdown-menu li a{
+    padding: 10px;
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #333;
+}
+.dropdown-menu li a:hover{
+    color: white;
+}
+.hidden{
+    display: none;
+}
+.hidden-card{
+    display: none;
+}
+.about-container{
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+    line-height: 1.7;
+}
+.about-hero{
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    padding: 50px 30px;
+    text-align: center;
+    box-shadow: inset 0 -10px 20px -10px rgba(0,0,0,0.3), 0 4px 6px -1px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 2;
+}
+.about-container h2{
+    font-size: 2.8rem;
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 0 0 10px 0;
+}
+.about-tagline{
+    font-size: 1.2rem;
+    color: #94a3b8;
+    font-style: italic;
+    font-weight: 400;
+    margin: 0;
+}
+.about-body{
+    background-color: #ffffff;
+    padding: 20px 0 40px 0;
+  
+}
+
+.about-section-block{
+    padding: 0 40px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+    text-align: left;
+    color: #334155;
+}
+.about-section-block h3{
+    font-size: 1.4rem;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+.developer-profile {
+    background: #f8fafc;
+    padding: 25px;
+    border-left: 5px solid #1a2a6c;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+.tech-stack{
+    margin-top: 15px;
+    font-size: 0.95rem;
+    color: #64748b;
+
+}
+
+.explore-header{
+    text-align: center;
+    margin: 40px auto;
+    
+}
+.filter-container{
+    margin-top: 20px;
+}
+.filter-btn{
+    background: #e2e8f0;
+    border:none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    
+}
+.filter-btn:hover{
+    background: #0f172a;
+    color:#fff ;
+}
+
+.explore-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(160px, 1fr));
+    gap: 20px;
+    padding: 0 40px 40px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.explore-card img{
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+
+.explore-card img:hover{
+    transform: scale(1.05);
+}
