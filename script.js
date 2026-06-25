@@ -1,35 +1,92 @@
-const movies= [{
-    title: "Love, Rosie",
-    vibes: ["love","college","miscommunication","friendship"]
-},
-{
-    title: "Inception",
-    vibes: ["Thought-Provoking","Time","Dreams","Sci-fi"]
-},
-{
-    title: "Interstellar",
-    vibes: ["space","time","cinematography","father-daughter"]
-},
-{
-    title: "Five feet apart",
-    vibes: ["disease","tragic","heartbreaking","bittersweet"]
-},
-{
-    title: "People We Meet On Vacation",
-    vibes: ["vacation","friendship","marriage","miscommunication"]
+console.log("DATA:",MEDIA_DATA);
+//HOME DATA RENDER
+const homeTrack= document.getElementById("carouselTrack");
+function renderHome(data){
+    homeTrack.innerHTML="";
+    data.forEach(item => {
+        const card=document.createElement("div");
+        card.className="card";
+        card.dataset.id=item.id;
+        card.innerHTML=`<img src="${item.img}" alt="${item.title}">`;
+        homeTrack.appendChild(card);
+    });
 }
-];
-function recommend(vibesArray){
-        const cleanVibes= vibesArray.map(v => v.trim().toLowerCase()).filter(v=>v !=="");
-        if (cleanVibes.length ===0){
-            document.getElementById("result").innerHTML="Please type a vibe to filter.";
-            return;
-        }
-        const matches=movies.filter(movie => cleanVibes.every(vibe=> movie.vibes.includes(vibe)));
-    document.getElementById("result").innerHTML= matches.length>0
-    ? matches.map(movie=>movie.title).join("<br>")
-    : "No matching algorithmic recommendations found for that vibe combo!";
-}   
+renderHome(MEDIA_DATA);
+function renderHomeCards(){
+    const track=document.getElementById("carouselTrack");
+    track.innerHTML=MEDIA_DATA.map(item =>`<div class="card" data-id="${item.id}">
+        <img src="${item.img}" alt="${item.title}">
+        </div>
+        `).join("");
+}
+//EXPLORE DATA RENDER
+const exploreGrid=document.getElementById("exploreGrid");
+function renderExplore(data){
+    exploreGrid.innerHTML="";
+    data.forEach(item =>{
+        const card=document.createElement("div");
+        card.className="explore-card";
+        card.dataset.id=item.id;
+        card.innerHTML=`<img src="${item.img}" alt="${item.title}">`;
+        exploreGrid.appendChild(card);
+    });
+}
+renderExplore(MEDIA_DATA);
+function renderExploreCards(){
+    const grid=document.getElementById("exploreGrid");
+    grid.innerHTML=MEDIA_DATA.map(item =>`
+        <div class="explore-card" data-id="${item.id}">
+        <img src="${item.img}" alt="${item.title}">
+        </div>
+         `).join("");
+
+}
+document.addEventListener("DOMContentLoaded",()=>{
+    renderHomeCards();
+    renderExploreCards();
+});
+// FILTER FUNCTION
+function applyFilter(filter){
+    const cards=document.querySelectorAll(".explore-card");
+        cards.forEach(card=> {
+            const item= MEDIA_DATA.find(m=> m.id === card.dataset.id);
+            if (!item) return;
+            const match= filter==="all" || item.vibes.some(v => v.toLowerCase().includes(filter));
+            card.style.display=match ? "block" : "none";
+        });
+    
+}
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+    btn.addEventListener("click",() =>{
+        applyFilter(btn.dataset.filter);
+    });
+});
+
+//modal
+function openModal(item){
+
+    document.getElementById("modalTitle").textContent=item.title;
+    document.getElementById("modalImg").src=item.img;
+    document.getElementById("modalDescription").textContent=item.description;
+    document.getElementById("modalWiki").href=item.wiki;
+    document.getElementById("modalLearnMore").href=item.learnMore;
+    document.getElementById("movieModal").classList.remove("hidden");
+    const vibesContainer=document.getElementById("modalVibes");
+    vibesContainer.innerHTML=item.vibes.map(vibe => `<span class="vibe-tag">${vibe}</span>`).join("");
+    
+}
+document.getElementById("closeModal").addEventListener("click",()=>{
+    document.getElementById("movieModal").classList.add("hidden");
+});
+document.addEventListener("click",(e) =>{
+    const card=e.target.closest(".card, .explore-card");
+    if (!card) return;
+    const item= MEDIA_DATA.find(m => m.id === card.dataset.id);
+    console.log("modal opening" ,item);
+    if (item) openModal(item);
+});
+
+
 document.addEventListener("DOMContentLoaded",()=>{
     const track = document.getElementById('carouselTrack');
     const nextBtn = document.getElementById('nextBtn');
@@ -91,34 +148,7 @@ navAbout.addEventListener('click', (e)=>{
     viewAbout.classList.remove('hidden');
 });
 
-const exploreFilterButtons= document.querySelectorAll('.filter-btn');
-const exploreCards= document.querySelectorAll('.explore-card');
-exploreFilterButtons.forEach(button =>{
-    button.addEventListener('click',()=>{
-        const filterValue= button.getAttribute('data-filter').toLowerCase();
-        exploreCards.forEach(card =>{
-            const cardVibe=card.getAttribute('data-vibe')? card.getAttribute('data-vibe').toLowerCase(): '';
-            
-            if(filterValue==='all' || cardVibe.includes(filterValue)){
-                card.style.display='block';
-                
-            
-            }else{
-                card.style.display='none';
-            }
-        });
-    });
-});
 
-const calcBtn=document.getElementById('calcRecommendBtn');
-const vibeInput=document.getElementById('vibeInput');
-if (calcBtn && vibeInput){
-    calcBtn.addEventListener('click',()=>{
-        const currentValues=vibeInput.value.split(',');
-       recommend(currentValues);
-        });
-}
- 
 //dark and light mode
 const themeToggle=document.getElementById('themeToggle');
 themeToggle.addEventListener('click',()=>{
@@ -131,39 +161,3 @@ themeToggle.addEventListener('click',()=>{
 });
 
 // modal engine setup
-const modal=document.getElementById('movieModal');
-const modalClose=document.getElementById('modalClose');
-const modalOverlay=document.getElementById('modalOverlay');
-const modalImg=document.getElementById('modalImg');
-const modalTitle=document.getElementById('modalTitle');
-const modalVibes=document.getElementById('modalVibes');
-function openModal(cardElement){
-    const title=cardElement.getAttribute('data-title') || " Unknown Title";
-    const vibeText=cardElement.getAttribute('data-vibe') || "";
-    const imgSrc=cardElement.querySelector('img').getAttribute('src');
-    modalTitle.textContent=title;
-    modalImg.setAttribute('src',imgSrc);
-
-    modalVibes.innerHTML='';
-    if (vibeText){
-        vibeText.split('').forEach(tag=>{
-            const span=document.createElement('span');
-            span.classList.add('modal-tag-pill');
-            span.textContent=tag;
-            modalVibes.appendChild(span);
-        });
-    }
-modalOverlay.classList.remove('hidden');
-}
-function closeModal(){
-    modalOverlay.classList.add('hidden');
-}
-document.addEventListener('click',(e)=>{
-    const card=e.target.closest('.card, .explore-card');
-    if (card){
-        openModal(card);
-    }
-});
-modalClose.addEventListener('click',closeModal);
-modalOverlay.addEventListener('click',closeModal);
-

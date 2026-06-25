@@ -1,5 +1,5 @@
 :root{
-    --bg-main:#0c0c0e;
+    --bg-main:#03000a;
     --bg-surface: #16161a;
     --bg-header: #0c0c0e;
     --text-primary:#ffffff;
@@ -35,8 +35,8 @@ body.light-theme nav ul {
     background: #ffffff;
 }
 body.light-theme nav ul li a:hover{
-    background: #f3f4f6;
-    color: #111827;
+    background: #19202d;
+    color: #e0e4ed;
 }
 body.light-theme nav ul li a{
     color: #4b5563;
@@ -49,22 +49,26 @@ body.light-theme #explore-view, body.light-theme #recommendations-view, body.lig
 body.light-theme #explore-view h2, body.light-theme #recommendations-view h2, body.light-theme #explore-view p, body.light-theme #recommendations-view p, body.light-theme .Personalized-Recommendations p{
     color: #111827;
 }
-body.light-theme .modal-info h2{
-    color: var(--text-primary);
-    text-shadow: none;
-}
+
 body.light-theme .developer-profile{
     background-color: rgba(0,0,0,0.02);
 }
-body.light-theme .modal-content{
-    background: #ffffff;
-    color: #111827;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 20px 25px -5px rgba(0, 0,0, 0.1);
-}
+
 body.light-theme #calcRecommendBtn, body.light-theme #vibeInput{
     background: #ffffff;
     color: #111827;
+}
+body.light-theme #explore-view .filter-btn{
+    background: #ffffff;
+    color: #16161a;
+}
+body.light-theme .searchbar{
+    background: #ffffff;
+    color: #111827;
+}
+body.light-theme #explore-view .filter-btn:hover{
+    background: #0a0a0c;
+    color: #ffffff;
 }
 body{
     background-color: var(--bg-main);
@@ -134,7 +138,7 @@ body{
 .toggle-btn{
     font-weight: bold;
     background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--border-color);
+    border: 1px solid #111827;
     color: var(--text-primary);
     padding: 10px 22px;
     z-index: 100;
@@ -185,7 +189,7 @@ nav ul li a{
 
 nav ul li a:hover{
     color:var(--text-primary);
-    background: rgba(255,255,255,0.1);
+    background: rgba(0, 0, 0, 0.804);
     
 }
 
@@ -287,14 +291,14 @@ nav ul li a:hover{
 
 
 /*filters, forms & inputs */
-input[type="text"], .searchbar, #moodInpur{
+input[type="text"], .searchbar, #moodInput{
     display: block;
     text-align: center;
     font-size: 1rem;
     padding: 14px 20px;
     background-color: var(--bg-main);
     color: var(--text-primary);
-    border: 1px solid var(--border-color);
+    border: 2px solid #0c0c0e;
     border-radius: 30px;
     outline: none;
     max-width: 360px;
@@ -306,10 +310,7 @@ input:focus{
     border-color: var(--neon-accent);
     box-shadow: var(--neon-glow);
 }
-input::placeholder{
-    color: #f9f4f4e9;
-    font-weight: 500;
-}
+
 .searchbar{
     width: clamp(180px, 20vw, 320px);
     border-radius: 11px;
@@ -317,21 +318,21 @@ input::placeholder{
 }
 
 /* BUTTON RECOMMENDATIONS */
-button, button.filter-btn, button#calcRecommendBtn{
-    background-color: var(--accent-gradient);
-    color: #ffffff;
-    border: none;
+button, .filter-btn, #calcRecommendBtn{
+    background-color: #0a0a0c;
+    color:#ffffff;
+    border: 2px solid #0c0c0e;
     padding: 12px 28px;
     font-size: 0.9rem;
     margin: 6px;
     border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(168,85,247,0.25);
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
 }
 button:hover,button.filter-btn:hover, button#calcRecommendBtn:hover{
    transform: translateY(-2px);
-   box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+   background: #ffffff;
+   color: #0a0a0c;
 
 }
 .hidden{
@@ -442,121 +443,13 @@ button:hover,button.filter-btn:hover, button#calcRecommendBtn:hover{
 
 /*overlay modal system */
 
-.modal{
-    position:fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.hidden{
-    display: none;
-}
-.modal-overlay{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(8px);
-    z-index: 999;
-    justify-content: center;
-    transition: opacity 0.3s ease;
-}
-.modal-content{
-    position: relative;
-    background: var(--bg-surface,#1f2937);
-    border: 1px solid var(--border-color,#374151);
-    box-shadow: var(--neon-glow), 0 20px 25px -5px rgba(0,0,0,0.5);
-    border-radius: 16px;
-    width: 90%;
-    max-width: 580px;
-    padding: 30px;
-    z-index: 1000;
-    animation: modalShow 0.25s cubic-bezier(0.175,0.885,0.32,1.275);
-}
-@keyframes modalShow{
-    from{transform:scale(0.9); opacity: 0;}
-    to{
-        transform: scale(1); opacity: 1;
-    }
-}
-.modal-close{
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: transparent;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 2rem;
-    cursor: pointer;
-    line-height: 1;
-}
-.modal-close:hover{
-    color: var(--neon-accent);
-}
-.modal-body{
-    display: flex;
-    gap: 25px;
-    align-items: flex-start;
-}
-.modal-img-container{
-    flex: 0 0 170px;
-    height: 250px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-}
-.modal-img-container img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.modal-info{
-    text-align: left;
-    flex: 1;
-}
-.modal-info h2{
-    margin: 0 0 10px 0;
-    font-size: 1.8rem;
-    color: #ffffff;
-    text-shadow: var(--neon-glow);
-}
-
-.modal-tags{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 15px;
-}
-.modal-tag-pill{
-    background: var(--bg-main);
-    border: 1px solid var(--neon-accent);
-    color: var(--text-primary);
-    padding: 4px 12px;
-    font-size: 0.8rem;
-    font-weight: 600;
-}
-.modal-desc {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 0;
-}
-.modal-overlay.hidden, .modal-content.hidden, .hidden{
-    display: none;
-    pointer-events: none;
-}
 
 /*responsive query*/
 @media(max-width:768px){
     nav ul{
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: 10px;
         align-items: center;
     }
@@ -564,25 +457,106 @@ button:hover,button.filter-btn:hover, button#calcRecommendBtn:hover{
         flex-direction: column;
         text-align: center;
     }
+    .card{
+        width: 160px;
+    }
     
 }
-@media(max-width: 600px){
-    .modal-body{
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .modal-info{
-        text-align: center;
-
-    }
-    #id1{
-        font-size: 2.5rem;
-    }
+/* MODAL */
+#movieModal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(8px);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(1,4,9,0.8);
+    align-items: center;
+    z-index: 2000;
 }
+#movieModal.hidden{
+    display: none;
+}
+.modal-content{
+    position: relative;
+    background: rgba(4, 4, 6, 0.85);  
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    gap: 24px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    border-radius: 16px;
     
 
+}
+.modal-body{
+    display: flex;
+    gap: 30px;
 
+}
+.modal-details{
+    flex: 1;
+    text-align: left;
+}
+#modalTitle{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+#modalImg{
+    width: 220px;
+    border-radius: 12px;
+    display: block;
+    margin-bottom: 20px;
 
-
-
+}
+#modalVibes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 15px 0;
+}
+#modalVibes span{
+    background: var(--accent-solid);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+#modalWiki, #modalLearnMore{
+    display: inline-block;
+    margin-top: 15px;
+    margin-right: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    background: var(--accent-solid);
+    color: white;
+}
+#closeModal{
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    transition: 0.2s ease;
+    padding: 0;
+    line-height: 1;
+}
+#closeModal:hover{
+    color: var(--text-primary);
+    transform: scale(1.1);
+}
