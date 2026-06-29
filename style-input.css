@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+#carouselTrack::-webkit-scrollbar{
+    display: none;
+}
+#carouselTrack{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
