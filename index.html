@@ -9,111 +9,142 @@
     <!--GOOGLE FONT-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
 </head>
-<body class="bg-zinc-950 text-zinc-100 font-[Inter]">
+<body class="bg-zinc-100 text-black dark:bg-black dark:text-white min-h-screen font-[Inter]">
+    
 <!--NAVBAR CONTENT-->
-    <nav class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/90 backdrop-blur">
+
+    <nav class="sticky top-0 z-50 border-b border-blue-800 bg-black-950/90 backdrop-blur">
         <div class="max-w-7xl mx-auto px-6">
              <div class="flex flex-col md:flex-row items-center justify-between py-5 gap-5">
-                <h1 class="text-3xl font-extrabold">
+                <h1 class="font-extrabold text-2xl text-blue-900">
                     VibeDeck
                 </h1>
                 <ul class="flex justify-center gap-3 sm:gap-6 text-sm sm:text-base whitespace-nowrap">
-                    <li><a href="#" class="n1 hover:text-amber-400 transition">Home</a></li>
-                    <li><a href="#" class="n2 hover:text-amber-400 transition">Explore</a></li>
-                    <li><a href="#" class="n4 hover:text-amber-400">Recommendations</a></li>
-                    <li><a href="#" class="n5 hover:text-amber-400 transition">About</a></li>
+                    <li><a href="#" class="n1 hover:text-blue-400 transition ">Home</a></li>
+                    <li><a href="#" class="n2 hover:text-blue-400 transitionn ">Explore</a></li>
+                    <li><a href="#" class="n4 hover:text-blue-400">Recommendations</a></li>
+                    <li><a href="#" class="n5 hover:text-blue-400 transition ">About</a></li>
                 </ul>
-                <button id="themeToggle" class="rounded-xl border border-zinc-700 px-4 py-2 hover:bg-zinc-800 transition">&#127769; Theme</button>
+                
              </div>
         </div> 
     </nav>
     <!--HERO-->
 <header class="mx-auto max-w-6xl px-6 py-20 text-center">
-    <p class="inline-block rounded-full border border-amber-500/30 bg-amber-500/10 px-4 py-2 text-amber-300">
+    <p class="inline-block rounded-full border border-blue-700/30 bg-black-900/10 px-4 py-2 text-blue-900">
         Movies &middot; TV Shows &middot; Books
     </p>
     <h1 class="mt-8 text-5xl md:text-7xl font-extrabold leading-tight">
         Suggestions shaped
-        <span class="text-amber-400">
+        <span class="text-blue-700">
             by your vibe.
         </span>
     </h1>
-    <p class="mx-auto mt-8 max-w-2xl text-lg text-zinc-400">
+    <p class="mx-auto mt-8 max-w-2xl text-center text-zinc-400">
         Discover movies, TV Shows and books based on how you're feeling.<br>
-        Skip endless scrolling and let your mood lead you to your next favourite story.
+        No more endless searching!
     </p>
     <div class="mt-10 flex justify-center gap-4 flex-wrap">
-         <button class="rounded-xl bg-amber-400 text-black px-6 py-3 font-semibold hover:scale-105 transition">Explore</button>
-         <button class="rounded-xl border border-zinc-700  px-6 py-3 hover:bg-zinc-900 transition">Recommendations</button>
+         <button id="heroExplore" class="rounded-md bg-blue-800 text-white px-6 py-3 font-2xl hover:scale-105 transition">Explore</button>
+         <button id="heroRecommend" class="rounded-lg border border-zinc-700  px-6 py-3 hover:bg-zinc-900 transition">Recommendations</button>
 
     </div>
 </header>
 <!--HOME-VIEW-->
     <section id="home-view" class="max-w-7xl mx-auto px-6 pb-16">
-            <h2 class="text-3xl font-bold">&#128293;Trending Stories</h2><br>
-            
+            <h2 class="text-3xl font-semibold">&#x1F30E; Stories people keep coming back to</h2><br>
             <div class="relative">
-                <button id="prevBtn" class="absolute left-3 top-[45%]-translate-y-1/2 z-20 w-10 h-10 rounded-full bg-zinc-900/80 text-white flex items-center justify-center hover:bg-zinc-800">
-                    &#10094;
-                </button>
-                <div class="flex gap-4 overflow-x-auto scroll-smooth pb-4" id="carouselTrack">
+                
+                <div class="flex gap-4 overflow-x-auto scroll-smooth pb-4" id="keepcomingbackTrack">
                 </div>
-                <button id="nextBtn" class="absolute right-3 top-[45%]-translate-y-1/2 z-20 w-10 h-10 rounded-full bg-zinc-900/80 p-3 hover:bg-zinc-800 text-white flex items-center justify-center">
-                    &#10095;
-                </button>
-            </div>     
+                
+            </div> 
+            <br>
+            <h2 class="text-3xl font-bold">&#x1F525; Currently talked about across the internet</h2><br>
+            <div class="relative">
+                
+                <div class="flex flex-row gap-2 overflow-x-auto scroll-smooth pb-4" id="trendingTrack">
+                </div>
+            </div>
+            <br><br>
+            <h2 class="text-3xl font-bold">&#x1F3C6; Critically Acclaimed Picks</h2><br>
+            <div class="relative">
+                
+                <div class="flex gap-4 overflow-x-auto overflow-y-hidden" id="criticallyacclaimedTrack">
+                </div>
+                
+            </div> 
+            <br><br>
+            <h2 class="text-3xl font-semibold ">What's VibeDeck For</h2><br>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-black-100 border border-blue-600 rounded-xl p-5 shadow-sm">
+                    <h2 class="font-semibold text-blue-500 text-lg mb-2">&#x2764; Mood based discovery</h2>
+                    <p class="mx-auto mt-2 max-w-2xl text-lg text-zinc-400">Find movies, shows and books based on your mood, not just genres.</p>
+                </div>
+                <div class="bg-black-100 border border-blue-600 rounded-xl p-5 shadow-sm">
+                    <h2 class="font-semibold text-blue-500 text-lg mb-2">&#x26A1; Instant Recommendations</h2>
+                    <p class="mx-auto mt-2 max-w-2xl text-lg text-zinc-400">Escape from the "SearchMania" and get quick picks.</p>
+                </div>
+                <div class="bg-black-100 border border-blue-600 rounded-xl p-5 shadow-sm">
+                    <h2 class="font-semibold text-blue-500 text-lg mb-2">&#x1F517; From one story to many</h2>
+                    <p class="mx-auto mt-2 max-w-2xl text-lg text-zinc-400">Explore movie, shows or books connected by similar themes and storytelling.</p>
+                </div>
+                <div class="bg-black-100 border border-blue-600 rounded-xl p-5 shadow-sm">
+                    <h2 class="font-semibold text-blue-500 text-lg mb-2">&#x1F4BE; Personal Vibe Space</h2>
+                    <p class="mx-auto mt-2 max-w-2xl text-lg text-zinc-400">Save and organize the stories you loved.</p>
+                </div>
+                
+            
+            </div>    
     </section>
 
 
 <!--EXPLORE-VIEW-->
     <section id="explore-view" class="hidden p-6">
         <div class="space-y-4">
-            <input class="w-full p-3 bg-gray-900 border border-gray-700 rounded" type="text" placeholder="Search movies, books or shows...">
+            <input id="searchinput" class="w-full p-3 bg-gray-900 border border-gray-700 rounded" type="text" placeholder="Search movies, books or shows...">
     
             <h2 class="text-2xl font-semibold">Discover Your Next Vibe</h2>
             <p class="text-gray-400">Select a mood to filter through our entire deck collection.</p>    
-            </div>
+            
 
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="exploreGrid"></div>
     </section>
 <!--RECOMMENDATIONS-VIEW-->
     <section id="recommendations-view" class="hidden p-6 space-y">
-        <h2 class="text-2xl font-semibold">Find Something That Fits Your Mood</h2>
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-2xl font-semibold">Find Something That Fits Your Mood</h2>
         <p class="text-gray-400">
-            Tell us what you're in the mood for.
-            It doesn't have to be perfect.
-        </p>
+            Describe how you're feeling and we'll help you find the right thing.
+        </p><br>
         <textarea
             id="moodInput" class="w-full p-3 bg-gray-900 border border-gray-700 rounded"
             placeholder="I want something cozy..."
-
         ></textarea>
-        <button id="recommendBtn" class="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700">
+        <br>
+        <button id="recommendBtn" class="px-4 py-2 bg-blue-800 rounded hover:bg-blue-700">
             Find Recommendations
         </button>
-        <div id="recommendResults"></div>
+        <br>
+        <div id="recommendResults" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div><br>
 <!--MOOD SECTIONS-->
-        <div class="space-y-10 mt-10">
-            <div>
+        <div id="stories" class="relative mt-10">
                 <h3 class="text-lg font-semibold mb-3">Stories That Feel Cozy</h3>
-                <div class="flex gap-4 overflow-x-auto" id="cozyRow"></div>
-            <div>
-                <h3 class="text-lg font-semibold mb-3">For Quiet Evenings</h3>
-                <div class="flex gap-4 overflow-x-auto" id="quietRow"></div>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-3">Feel-Good Escapes</h3>
-                <div class="flex gap-4 overflow-x-auto" id="feelGood"></div>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold mb-3">Mind Bending Stories</h3>
-                <div class="flex gap-4 overflow-x-auto" id="mindBending"></div>
-            </div>
+                <div class="relative">
+                    <div class="flex flex-row gap-4 overflow-x-auto overflow-y-hidden" id="cozyRowTrack"></div>   
+                </div><br>
+                <h3 class="text-lg font-semibold mb-3">Stories Teens are into </h3>
+                <div class="relative">
+                    <div class="flex flex-row gap-4 overflow-x-auto overflow-y-hidden" id="teenRowTrack"></div> 
+                </div>
         </div>
-        </div>   
+        
+        </div>
+        
     </section>
 <!--ABOUT-VIEW-->
     <section id="about-view" class="hidden p-6 space-y-6">
@@ -148,21 +179,22 @@
         <div class="modal-content relative w-[92vw] sm:w-[85vw] md:w-full max-w-md md:max-w-3xl rounded-2xl sm:rounded-2xl md:rounded-2xl bg-zinc-900 max-h-[80vh] overflow-y-auto">
              <button id="closeModal" class="absolute top-4 right-4 text-3xl text-white hover:text-red-400">&times;</button>
              <div class="modal-body p-3 sm:p-5 md:p-8 flex flex-col gap-4 md:gap-6">
-                <img id="modalImg" class="w-24 sm:w-32 md:w-56 mx-auto md:mx-0 rounded-lg object-cover">
+                <img id="modalImg" class="w-24 sm:w-32 md:w-56 mx-auto md:mx-0 object-cover">
                 <div class="modal-details flex flex-col gap-2 md:gap-3">
                     <h2 id="modalTitle" class="text-lg sm:text-xl md:text-3xl font-bold"></h2>
                 
-                <div id="modalVibes" class="flex flex-wrap gap-1.5 md:gap-2"></div>
+                <div id="modalVibes" class="flex flex-wrap  gap-1.5 md:gap-2"></div>
                 <p id="modalDescription" class="text-zinc-300"></p>
                 <div class="mt-6 flex flex-wrap gap-3">
-                    <a id="modalWiki" target="_blank" class="rounded-lg bg-zinc-800 px-4 py-2 hover:bg-zinc-700 transition">Wikipedia</a>
-                    <a id="modalLearnMore" target="_blank" class="rounded-lg bg-amber-400 px-4 py-2 font-semibold text-black hover:bg-amber-300 transition">Learn More</a>
+                    <a id="modalWiki" target="_blank" class="rounded-lg bg-blue-800 px-4 py-2 hover:bg-zinc-700 transition">Wikipedia</a>
+                    <a id="modalLearnMore" target="_blank" class="rounded-lg bg-red-700 px-4 py-2 font-2xl text-white hover:bg-red-300 transition">Learn More</a>
                     </div>
                 </div>
              </img>
     </div>
         </div>
     </div>
+
     <script src="data.js"></script>
     <script src="script.js"></script>
 </body>

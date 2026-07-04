@@ -1,10 +1,39 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-#carouselTrack::-webkit-scrollbar{
+#keepcomingback::-webkit-scrollbar{
     display: none;
 }
-#carouselTrack{
+#keepcomingbackTrack{
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+#trending::-webkit-scrollbar{
+    display: none;
+}
+#trendingTrack{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+#criticallyacclaimed::-webkit-scrollbar{
+    display: none;
+}
+#criticallyacclaimedTrack{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+#cozyRowTrack{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+#cozyRow::-webkit-scrollbar{
+    display: none;
+}
+#teenRowTrack{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+#teenRow::-webkit-scrollbar{
+    display: none;
 }
