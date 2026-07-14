@@ -17,14 +17,14 @@ function renderRow(track,data){
 }
 //hiding recommendations content on home-view tab
 function showHome(){
-    home-view.classList.remove("hidden");
-    recommendations-view.classList.add("hidden");
-    home-view.innerHTML; renderRow();
+    viewHome.classList.remove("hidden");
+    viewRecommend.classList.add("hidden");
+    viewHome.innerHTML; renderRow();
 }
 function showRecommendations(){
-    recommendations-view.classList.remove("hidden");
-    home-view.classList.add("hidden");
-    recommendations-view.innerHTML;renderRecommendations();
+    viewRecommend.classList.remove("hidden");
+    viewHome.classList.add("hidden");
+    viewRecommend.innerHTML;renderRecommendations();
 }
 //EXPLORE DATA RENDER
 const exploreGrid=document.getElementById("exploreGrid");
@@ -176,20 +176,19 @@ const teenRowTrack=document.getElementById("teenRowTrack");
 const inputel=document.getElementById("moodInput");
 const buttonel=document.getElementById("recommendBtn");
 const resultsel=document.getElementById("recommendResults");
+console.log(resultsel);
 function getRecommendations(input){
     const query=input.toLowerCase();
-    return MEDIA_DATA
-       .map(item=>{
-        let score=0;
-        item.vibes.forEach(vibe =>{
-            if(query.includes(vibe.toLowerCase())){
-                score +=1;
-            }
-        });
-        return {...item,score};
-           })
-           .filter(item => item.score >0)
-           .sort((a,b)=> b.score - a.score);
+    let mood=null;
+    for (const category in moodMap){
+        if (moodMap[category].some(word=>query.includes(word))){
+             mood=category;
+             break;
+        }
+    }
+   if (!mood) return [];
+    return MEDIA_DATA.filter(item=>recommendationMap[mood].includes(item.id));
+       
 }
 function renderResults(items){
     resultsel.innerHTML="";
@@ -199,17 +198,10 @@ function renderResults(items){
     }
     items.forEach(item=>{
         const card=document.createElement("div");
-        card.className="card bg-zinc-900 rounded-xl shadow-lg overflow-hidden max-w-sm w-full";
-        card.innerHTML=`<img src="${item.img}" class="w-full h-56 object-cover" alt="${item.title}" />
-        <h3>${item.title}</h3>
-        <br>
-        <p>${item.description}</p>
-        <br>
-        <div>
-           ${item.vibes.map(v=>`<span class="tag rounded-full bg-zinc-900/15 border border-blue-700/30 px-3 py-1 text-sm text-blue-900">${v}</span>`).join(" ")}
-        </div>
-        <br>
-        <a href="${item.learnMore}" target="_blank">LearnMore</a>
+        card.className="card flex-none w-36 md:w-40 lg:w-52 cursor-pointer transition duration-300 hover:scale-105";
+        card.dataset.id=item.id;
+        card.innerHTML=`<img src="${item.img}" class="w-full aspect-[2/3] rounded-xl shadow-lg" alt="${item.title}"/>
+        
         `;
         resultsel.appendChild(card);
     });

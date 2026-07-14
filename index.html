@@ -16,10 +16,10 @@
     
 <!--NAVBAR CONTENT-->
 
-    <nav class="sticky top-0 z-50 border-b border-blue-800 bg-black-950/90 backdrop-blur">
+    <nav class="sticky top-0 z-50 border-b border-blue-800 bg-black-950/90 backdrop-blur-md ">
         <div class="max-w-7xl mx-auto px-6">
              <div class="flex flex-col md:flex-row items-center justify-between py-5 gap-5">
-                <h1 class="font-extrabold text-2xl text-blue-900">
+                <h1 class="font-extrabold text-2xl text-blue-700">
                     VibeDeck
                 </h1>
                 <ul class="flex justify-center gap-3 sm:gap-6 text-sm sm:text-base whitespace-nowrap">
@@ -34,7 +34,7 @@
     </nav>
     <!--HERO-->
 <header class="mx-auto max-w-6xl px-6 py-20 text-center">
-    <p class="inline-block rounded-full border border-blue-700/30 bg-black-900/10 px-4 py-2 text-blue-900">
+    <p class="inline-block rounded-full border border-blue-700/30 bg-black-900/10 px-4 py-2 text-blue-700 font-2xl">
         Movies &middot; TV Shows &middot; Books
     </p>
     <h1 class="mt-8 text-5xl md:text-7xl font-extrabold leading-tight">
@@ -55,7 +55,7 @@
 </header>
 <!--HOME-VIEW-->
     <section id="home-view" class="max-w-7xl mx-auto px-6 pb-16">
-            <h2 class="text-3xl font-semibold">&#x1F30E; Stories people keep coming back to</h2><br>
+            <h2 class="text-3xl font-semibold">Stories people keep coming back to</h2><br>
             <div class="relative">
                 
                 <div class="flex gap-4 overflow-x-auto scroll-smooth pb-4" id="keepcomingbackTrack">
@@ -63,14 +63,14 @@
                 
             </div> 
             <br>
-            <h2 class="text-3xl font-bold">&#x1F525; Currently talked about across the internet</h2><br>
+            <h2 class="text-3xl font-semibold">Currently talked about across the internet</h2><br>
             <div class="relative">
                 
                 <div class="flex flex-row gap-2 overflow-x-auto scroll-smooth pb-4" id="trendingTrack">
                 </div>
             </div>
             <br><br>
-            <h2 class="text-3xl font-bold">&#x1F3C6; Critically Acclaimed Picks</h2><br>
+            <h2 class="text-3xl font-semibold">Critically Acclaimed Picks</h2><br>
             <div class="relative">
                 
                 <div class="flex gap-4 overflow-x-auto overflow-y-hidden" id="criticallyacclaimedTrack">
@@ -104,7 +104,8 @@
 
 <!--EXPLORE-VIEW-->
     <section id="explore-view" class="hidden p-6">
-        <div class="space-y-4">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="space-y-4">
             <input id="searchinput" class="w-full p-3 bg-gray-900 border border-gray-700 rounded" type="text" placeholder="Search movies, books or shows...">
     
             <h2 class="text-2xl font-semibold">Discover Your Next Vibe</h2>
@@ -112,7 +113,10 @@
             
 
         </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6" id="exploreGrid"></div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 max-w-5xl mx-auto justify-items-center" id="exploreGrid"></div>
+
+        </div>
+        
     </section>
 <!--RECOMMENDATIONS-VIEW-->
     <section id="recommendations-view" class="hidden p-6 space-y">
@@ -130,7 +134,7 @@
             Find Recommendations
         </button>
         <br>
-        <div id="recommendResults" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div><br>
+        <div id="recommendResults" class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-6 max-w-5xl mx-auto justify-items-center"></div><br>
 <!--MOOD SECTIONS-->
         <div id="stories" class="relative mt-10">
                 <h3 class="text-lg font-semibold mb-3">Stories That Feel Cozy</h3>
@@ -148,16 +152,13 @@
     </section>
 <!--ABOUT-VIEW-->
     <section id="about-view" class="hidden p-6 space-y-6">
-                <h2 class="text-3xl font-bold">About VibeDeck</h2>
-                <p class="text-gray-400">
-                    Suggestions shaped  by your vibe.
-                </p>
+                
             <div class="space-y-6">
                 <div>
                     <h3 class="text-xl font-semibold">The Concept</h3>
-                    <p class="text-gray-300">Traditional streaming platforms sort content by rigid, clinical genres like Action, Comedy, or Drama.
-                But human emotions don't always fit into neat little boxes. Sometimes you aren't looking for generic "Drama"-you're looking for something deeply <strong>Thought-Provoking</strong>, a dose of <strong>Motivational</strong> energy, or a heavy <strong>Dark-Intense</strong> thriller.
-                <strong>VibeDeck</strong> bridges that gap by mapping curation to how you actually feel.
+                    <p class="text-gray-300">Traditional streaming platforms sort content by rigid, standard genres like Action, Comedy, or Drama.
+                But sometimes the human emotions don't just belong to one specific genre.We bridge that gap between your emotions and the stories available by curating them according to much narrower categories.
+                
             </p>
             </div>
             <div>
@@ -176,23 +177,28 @@
     </section>
 <!--MODALS-->
     <div id="movieModal" class="hidden fixed inset-0 z-[100] bg-black/70 flex items-center justify-center p-4">
-        <div class="modal-content relative w-[92vw] sm:w-[85vw] md:w-full max-w-md md:max-w-3xl rounded-2xl sm:rounded-2xl md:rounded-2xl bg-zinc-900 max-h-[80vh] overflow-y-auto">
-             <button id="closeModal" class="absolute top-4 right-4 text-3xl text-white hover:text-red-400">&times;</button>
-             <div class="modal-body p-3 sm:p-5 md:p-8 flex flex-col gap-4 md:gap-6">
-                <img id="modalImg" class="w-24 sm:w-32 md:w-56 mx-auto md:mx-0 object-cover">
-                <div class="modal-details flex flex-col gap-2 md:gap-3">
-                    <h2 id="modalTitle" class="text-lg sm:text-xl md:text-3xl font-bold"></h2>
-                
-                <div id="modalVibes" class="flex flex-wrap  gap-1.5 md:gap-2"></div>
-                <p id="modalDescription" class="text-zinc-300"></p>
-                <div class="mt-6 flex flex-wrap gap-3">
-                    <a id="modalWiki" target="_blank" class="rounded-lg bg-blue-800 px-4 py-2 hover:bg-zinc-700 transition">Wikipedia</a>
-                    <a id="modalLearnMore" target="_blank" class="rounded-lg bg-red-700 px-4 py-2 font-2xl text-white hover:bg-red-300 transition">Learn More</a>
+        <div class="relative w-[90vw] md:w-full max-w-sm md:max-w-4xl overflow-hidden max-w-sm rounded-md bg-zinc-900">
+             <button id="closeModal" class="absolute top-4 right-4 z-20 text-3xl text-white hover:text-red-400">&times;</button>
+             <div class="flex flex-row">
+                <div class="w-28 md:w-64 shrink-0">
+                    <img id="modalImg" class="w-full h-full object-cover">
+                </div>
+                <div class="flex-1 p-3 md:p-6 overflow-y-auto">
+                     <h2 id="modalTitle" class="text-lg md:text-3xl font-bold mb-2 md:mb-3"></h2>
+                <div id="modalVibes" class="flex flex-wrap gap-2 mb-3"></div><br>
+                <p id="modalDescription" class="text-sm md:text-base leading-6 text-zinc-300"></p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a id="modalWiki" target="_blank" class="rounded-lg bg-blue-800 px-2 py-1 text-xs md:px-4 md:py-2 hover:bg-zinc-700 transition">Wikipedia</a>
+                    <a id="modalLearnMore" target="_blank" class="rounded-lg bg-red-700 px-2 py-1 text-xs md:px-4 md:py-2 text-white hover:bg-red-300 transition">Learn More</a>
                     </div>
                 </div>
-             </img>
+                </div>
+
+                </div>
+               
+             
     </div>
-        </div>
+        
     </div>
 
     <script src="data.js"></script>

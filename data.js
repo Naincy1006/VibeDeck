@@ -340,3 +340,21 @@ const MEDIA_DATA=[
         learnMore: "https://www.goodreads.com/book/show/129915654-pride-and-prejudice"
     }   
 ];
+const moodMap={
+    healing: ["sad","crying","cry","terrible","hurt","broken","heartbroken","grief"],
+    lonely:["lonely","alone","isolated","empty"],
+    stressed:["stress","anxious","overwhelmed","burnout"],
+    happy:["happy","excited","joyful"],
+    cozy:["cozy","comfort","warm","rain"],
+    intense:["intense","intelligent","mind bending","thought provoking"]
+
+};
+const recommendationMap=
+{
+    healing:[5,6,7,20],
+    lonely:[7,6],
+    stressed:[6],
+    happy:[2,5,6,7,13],
+    cozy:[22],
+    intense:[1,3,4,9,12,,17,22,26]
+};

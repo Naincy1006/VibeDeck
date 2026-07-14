@@ -2,6 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+#modalImg::-webkit-scrollbar{
+    display: none;
+}
+#modalImg{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
 #keepcomingback::-webkit-scrollbar{
     display: none;
 }
